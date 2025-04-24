@@ -38,10 +38,21 @@
       width: 100%;
     }
     .avatar {
-      font-size: 3.5rem;
-      position: relative;
-      animation: float 3s ease-in-out infinite;
-      transition: transform 0.2s;
+  width: 120px;  /* Slightly bigger */
+  height: 120px; /* Slightly bigger */
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+
+.avatar-img {
+  width: 120px; /* Slightly bigger image */
+  height: 180px; /* Slightly bigger image */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
     }
     .avatar:hover {
       transform: scale(1.1);
@@ -149,7 +160,7 @@
     <div class="player" id="player1">
       <div class="avatar">
         <div class="gold-counter">2</div>
-        🌀
+        <img src="C:/Users/hp/Downloads/detective.png" alt="Chiller Avatar" class="avatar-img">
       </div>
       <div class="stats">
         <div class="character-name">Chiller</div>
@@ -169,7 +180,7 @@
     <div class="player" id="player2">
       <div class="avatar">
         <div class="gold-counter">1</div>
-        🎭
+        <img src="C:/Users/hp/Downloads/ninja.png" alt="Ruto Avatar" class="avatar-img">
       </div>
       <div class="stats">
         <div class="character-name">Ruto</div>

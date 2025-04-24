@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discipline Duel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Baloo 2', cursive, sans-serif;
+      background: linear-gradient(135deg, #1a1a40 0%, #2c2c54 100%);
+      background-attachment: fixed;
+      background-size: cover;
+      color: #f1f1f1;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ff6b6b;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 30px;
+    }
+    .players {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      width: 100%;
+    }
+    .avatar {
+      font-size: 3.5rem;
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+      transition: transform 0.2s;
+    }
+    .avatar:hover {
+      transform: scale(1.1);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .gold-counter {
+      position: absolute;
+      top: -8px;
+      left: -10px;
+      background: #ffd700;
+      color: black;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 0 10px #ffd700;
+    }
+    .stats {
+      flex: 1;
+    }
+    .character-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #ffd6ff;
+      text-shadow: 1px 1px #000;
+    }
+    .level-name {
+      font-size: 1.25rem;
+      color: #90e0ef;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    .level-icon {
+      margin-left: 10px;
+      font-size: 1.5rem;
+    }
+    .level-xp {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .level {
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: #90e0ef;
+      color: #03045e;
+    }
+    .xp-text {
+      font-size: 1rem;
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+    .bar {
+      height: 16px;
+      background: #90e0ef;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 220px;
+      overflow: hidden;
+      animation: pulseBar 3s ease-in-out infinite;
+    }
+    .xp-bar-fill {
+      height: 100%;
+      transition: width 0.3s;
+      background: linear-gradient(to right, #00b4d8, #0077b6);
+      box-shadow: 0 0 12px #00b4d8, inset 0 0 6px #0077b6;
+    }
+    @keyframes pulseBar {
+      0%, 100% { box-shadow: 0 0 10px #00b4d8, inset 0 0 5px #0077b6; }
+      50% { box-shadow: 0 0 16px #00b4d8, inset 0 0 8px #0077b6; }
+    }
+    .streak-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    .streak-dot {
+      width: 16px;
+      height: 16px;
+      background: #aaa;
+      border-radius: 50%;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .streak-dot.active {
+      background: #ff4500;
+      box-shadow: 0 0 10px #ff4500;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Discipline Duel</h1>
+  <div class="players">
+    <div class="player" id="player1">
+      <div class="avatar">
+        <div class="gold-counter">2</div>
+        🌀
+      </div>
+      <div class="stats">
+        <div class="character-name">Chiller</div>
+        <div class="level-name">Level 50 Blue Dragon <span class="level-icon">🐉</span></div>
+        <div class="level-xp">
+          <div class="level">Lv 5</div>
+          <div class="xp-text">XP: 1870</div>
+        </div>
+        <div class="bar"><div class="xp-bar-fill" style="width: 60%"></div></div>
+        <div class="streak-bar">
+          <div class="streak-dot active"></div>
+          <div class="streak-dot active"></div>
+          <div class="streak-dot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="player" id="player2">
+      <div class="avatar">
+        <div class="gold-counter">1</div>
+        🎭
+      </div>
+      <div class="stats">
+        <div class="character-name">Ruto</div>
+        <div class="level-name">Level 30 Red Fox <span class="level-icon">🦊</span></div>
+        <div class="level-xp">
+          <div class="level">Lv 6</div>
+          <div class="xp-text">XP: 2340</div>
+        </div>
+        <div class="bar"><div class="xp-bar-fill" style="width: 80%"></div></div>
+        <div class="streak-bar">
+          <div class="streak-dot active"></div>
+          <div class="streak-dot"></div>
+          <div class="streak-dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
